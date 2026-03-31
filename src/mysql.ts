@@ -1,11 +1,12 @@
 import mysql from 'mysql';
+import 'dotenv/config'; 
 
 const pool = mysql.createPool({
-    "user":"root",
-    "password":"67kIl*45",
-    "database":"api-yt-project",
-    "host":"localhost",
-    "port":3306
-})
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT) 
+});
 
 export { pool };
